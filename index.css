@@ -13,14 +13,42 @@
   background-size: cover;
 
   height: 220px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  font-size: 80px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
   align-items: center;
 
-  font-size: 12ch;
   color: white;
   text-shadow: -3px 0 #000, 0 3px #000, 3px 0 #000, 0 -3px #000;
+}
+
+.header h1 {
+  font-size: clamp(4rem, 15vw, 20rem);
+  text-align: center;
+  padding: 1rem;
+  line-height: 1.2;
+}
+
+/* 미디어 쿼리를 사용한 추가적인 반응형 조정 */
+@media (max-width: 768px) {
+  .header {
+    height: 200px;
+  }
+  .header h1 {
+    font-size: clamp(3.5rem, 12vw, 15rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    height: 180px;
+  }
+  .header h1 {
+    font-size: clamp(3rem, 10vw, 12rem);
+  }
 }
 
 /* 검색창 배경 */
@@ -107,12 +135,6 @@
   width: 90%;
 }
 
-/* 스크롤이벤트 */
-/* .scroll {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-} */
 #progress-bar {
   position: fixed;
   top: 0;
@@ -133,8 +155,3 @@
   border-radius: 5px;
   font-size: 14px;
 }
-/* .content {
-  padding: 20px;
-  /* /* 스크롤을 위해 긴 내용 추가 */
-/* height: 2000px;
-} */
