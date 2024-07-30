@@ -29,7 +29,11 @@ function createMovieCard(movie) {
 }
 
 // 검색
-document.getElementById("search-button").addEventListener("click", () => {
+document
+  .getElementById("search-button")
+  .addEventListener("click", performSearch);
+
+function performSearch() {
   const searchInput = document.getElementById("search-input");
   const query = searchInput.value.trim().toLowerCase();
   const movieCards = document.querySelectorAll(".movie-card");
@@ -45,6 +49,7 @@ document.getElementById("search-button").addEventListener("click", () => {
 
   movieCards.forEach((card) => {
     const title = card.querySelector("h3").textContent.toLowerCase();
+
     if (title.includes(query)) {
       card.style.display = "block";
       resultCount++;
@@ -56,10 +61,13 @@ document.getElementById("search-button").addEventListener("click", () => {
   // 검색 결과 확인
   if (resultCount === 0) {
     alert("검색 결과가 없습니다.");
-    // 모든 카드를 다시 표시 (선택적)
-    movieCards.forEach((card) => (card.style.display = "block"));
+    resetDisplay(movieCards);
   }
-});
+}
+
+function resetDisplay(cards) {
+  cards.forEach((card) => (card.style.display = "block"));
+}
 
 // 스크롤이벤트
 window.addEventListener("scroll", function () {
