@@ -1,4 +1,4 @@
-// 본인의 API 키를 넣어주셔야 합니다.
+// API
 const API_KEY = "8734eaecc60720874a9c1c5b4590a01f";
 const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
 
@@ -14,6 +14,7 @@ fetch(URL)
   })
   .catch((error) => console.error("Error:", error));
 
+// 카드 붙이기
 function createMovieCard(movie) {
   const card = document.createElement("div");
   card.className = "movie-card";
@@ -27,6 +28,7 @@ function createMovieCard(movie) {
   return card;
 }
 
+// 검색
 document.getElementById("search-button").addEventListener("click", () => {
   const searchInput = document.getElementById("search-input");
   const query = searchInput.value.trim().toLowerCase();
@@ -70,4 +72,10 @@ window.addEventListener("scroll", function () {
   document.getElementById("progress-bar").style.width = scrollPercentage + "%";
   document.getElementById("progress-percent").textContent =
     Math.round(scrollPercentage) + "%";
+});
+
+// 검색 입력란 깜박깜박
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.querySelector("#search-input");
+  searchInput.focus();
 });
