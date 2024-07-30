@@ -98,8 +98,7 @@
   background-color: rgb(185, 34, 34);
 }
 
-/* 카드 붙이는 배경 */
-
+/* 카드 */
 .myCard {
   /* width: 100vw; */
 
@@ -131,10 +130,15 @@
   background-color: white;
 }
 
+.movie-card:hover {
+  transform: scale(1.02);
+}
+
 .movie-card img {
   width: 90%;
 }
 
+/* 스크롤바 */
 #progress-bar {
   position: fixed;
   top: 0;
@@ -145,6 +149,7 @@
   z-index: 9999;
   transition: width 0.2s ease-out;
 }
+
 #progress-percent {
   position: fixed;
   top: 10px;
